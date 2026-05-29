@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  /* Burn palette */
+  --color-bg: #0E0E0E;
+  --color-surface: #161616;
+  --color-surface-border: #1E1E1E;
+  --color-text: #F2EFE8;
+  --color-text-secondary: #9A958C;
+  --color-text-muted: #6B6B6B;
+  --color-accent: #BF4723;
+
+  /* Typography */
+  --font-display: var(--font-camera);   /* ABC Camera Plain Medium → headings */
+  --font-body: var(--font-camera);      /* ABC Camera Plain Regular → body */
+  --font-label: var(--font-simpson);    /* SimpsonCW Medium — ALL CAPS, wide tracking */
+
+  /* Radius — subtle rounding on cards/pills/dropdown so they match
+     burnstudio.co's actual visual. Structural primary containers
+     (canvas, detail panel) stay at 0 (default). */
+  --radius-card: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background — dot matrix grid layered on top of a subtle cross-hatch
+   mesh, matching burnstudio.co's textured pattern.
+     - Dots: 1px radius at ~80px spacing in --color-text-secondary
+       (#9A958C, muted warm gray). Roughly 24 dots across a 1920px
+       viewport, similar to their site.
+     - Cross-hatch: two crossed sets of 45° / -45° diagonal lines
+       at very low opacity (rgba(242,239,232,0.018)) so they read
+       as a faint mesh behind the dots.
+   Cards (bg-surface) cover everything, so the pattern only shows in
+   the negative space around the canvas. */
+body {
+  background-image:
+    radial-gradient(circle, #9a958c 1px, transparent 1px),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 5px,
+      rgba(242, 239, 232, 0.018) 5px,
+      rgba(242, 239, 232, 0.018) 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0,
+      transparent 5px,
+      rgba(242, 239, 232, 0.018) 5px,
+      rgba(242, 239, 232, 0.018) 6px
+    );
+  background-size: 80px 80px, auto, auto;
+}
+
+body {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+/* Label / metadata treatment — applied wherever we use SimpsonCW. */
+.font-label {
+  font-family: var(--font-label), -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+}
+
+/* Connection-line draw-in animation. Plays once on mount via CSS animation
+   (forwards fill-mode keeps the final state). Doesn't replay on drag-reorder
+   because the <line> nodes don't unmount when satellites rearrange.
+   Uses opacity rather than stroke-dashoffset so the dasharray slot stays
+   free for the dotted-line pattern set on each <line> element. */
+@keyframes draw-connection {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.connection-line {
+  opacity: 0;
+  animation: draw-connection 0.7s ease-out forwards;
+}
