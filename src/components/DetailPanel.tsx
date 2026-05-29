@@ -276,7 +276,7 @@ function Pill({
     <button
       type="button"
       onClick={onClick}
-      className={`font-label px-2 py-1 cursor-pointer transition-colors rounded-card ${
+      className={`font-label px-2 py-1 cursor-pointer transition-colors rounded-badge ${
         active
           ? "bg-surface-border text-text"
           : "text-text-muted hover:text-text-secondary"

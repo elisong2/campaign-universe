@@ -15,10 +15,12 @@
   --font-body: var(--font-camera);      /* ABC Camera Plain Regular → body */
   --font-label: var(--font-simpson);    /* SimpsonCW Medium — ALL CAPS, wide tracking */
 
-  /* Radius — subtle rounding on cards/pills/dropdown so they match
-     burnstudio.co's actual visual. Structural primary containers
-     (canvas, detail panel) stay at 0 (default). */
-  --radius-card: 4px;
+  /* Radius — per BURN_BRAND.md, cards are generously rounded (16px,
+     spec range 16-20) and badges/pills are tighter (10px, spec range
+     10-12). Structural primary containers (canvas, detail panel) stay
+     at 0 (default). */
+  --radius-card: 16px;
+  --radius-badge: 10px;
 }
 
 * {

@@ -56,7 +56,7 @@ export function HeaderBar({
           className="h-9 w-auto select-none"
           draggable={false}
         />
-        <div className="text-[13px] text-text">Campaign Universe</div>
+        <div className="font-label text-text">CAMPAIGN UNIVERSE</div>
       </div>
 
       {/* Row 2 — brand/concept inputs (left) + action stack (right) */}
@@ -95,7 +95,7 @@ export function HeaderBar({
           </div>
         </div>
 
-        <div className="flex flex-col items-end gap-1.5 shrink-0">
+        <div className="flex items-center gap-0.5 shrink-0">
           <CampaignSwitcher
             campaigns={campaigns}
             activeId={campaign.id}
@@ -107,7 +107,7 @@ export function HeaderBar({
             type="button"
             onClick={onGenerate}
             disabled={generateDisabled}
-            className="text-[13px] text-text-secondary hover:text-accent transition-colors cursor-pointer disabled:text-text-muted disabled:cursor-default disabled:hover:text-text-muted"
+            className="text-[13px] text-center bg-surface-border rounded-badge px-2.5 py-1 min-w-[100px] text-text-secondary hover:text-accent transition-colors cursor-pointer disabled:text-text-muted disabled:bg-surface-border/40 disabled:cursor-default disabled:hover:text-text-muted"
           >
             {isGenerating ? "Generating…" : "Generate"}
           </button>
@@ -115,7 +115,7 @@ export function HeaderBar({
             type="button"
             onClick={onAddSatellite}
             disabled={addSatelliteDisabled}
-            className="text-[13px] text-text-secondary hover:text-accent transition-colors cursor-pointer disabled:text-text-muted disabled:cursor-default disabled:hover:text-text-muted"
+            className="text-[13px] bg-surface-border rounded-badge px-2.5 py-1 text-text-secondary hover:text-accent transition-colors cursor-pointer disabled:text-text-muted disabled:bg-surface-border/40 disabled:cursor-default disabled:hover:text-text-muted"
           >
             + Add satellite
           </button>

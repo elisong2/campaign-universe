@@ -97,7 +97,7 @@ export function CampaignCanvas({
           style={{ width: CANVAS.width, height: CANVAS.height }}
         >
           <div className="flex-1" />
-          <div className="w-12 h-px bg-surface-border" />
+          {/* <div className="w-12 h-px bg-surface-border" /> */}
           <div className="font-label text-text-muted">EMPTY SYSTEM</div>
           <h2 className="text-[26px] text-text font-medium">
             Nothing in orbit yet...

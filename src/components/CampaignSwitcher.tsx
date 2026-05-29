@@ -66,7 +66,7 @@ export function CampaignSwitcher({
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="font-label text-text-muted hover:text-text transition-colors cursor-pointer flex items-center gap-2"
+        className="font-label bg-surface-border rounded-badge px-2.5 py-1 text-text-secondary hover:text-text transition-colors cursor-pointer flex items-center gap-2"
       >
         {/* <span>CAMPAIGN · {activeId}</span> */}
         <span> · {activeId}</span>
